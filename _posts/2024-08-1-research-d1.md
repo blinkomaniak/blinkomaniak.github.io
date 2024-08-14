@@ -226,5 +226,3 @@ We lost connectivity
 
 # PENDING TO ADD DOCUMENTATION ABOUT THE FOUND ERROR (delay: 2 weeks)
 
-
-
