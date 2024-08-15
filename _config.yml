@@ -14,9 +14,9 @@ timezone: Europe/Amsterdam
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Research Bitacora # the main title
+title: Bitacora of a Research # the main title
 
-tagline: The steps towards a well-founded research # it will display as the sub-title
+tagline: My steps towards rigorous research # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   This blog provides all the documented process of research that I am going through towards my phd proposal. This blog contains the bitacora of the entire implementation.
@@ -96,7 +96,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: /assets/images/yo.jpg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
