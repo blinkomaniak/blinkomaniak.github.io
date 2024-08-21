@@ -1,5 +1,5 @@
 ---
-title: Day 1
+title: Aug 1
 date: 2024-08-13 05:00:00 +0200
 categories: [research, setup]
 tags: [virtualbox, opnsense, networking, linux]     # TAG names should always be lowercase
