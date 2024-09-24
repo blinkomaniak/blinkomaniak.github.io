@@ -22,9 +22,9 @@ order: 1
 | 2017  | Triton Malware             | Petrochemical plant in Saudi Arabia                       |
 | 2017  | NotPetya Ransomware        | Cyber-physical systems of Maersk and Merck                |
 | 2021  | Oldsmar APT                | Chemical levels in the water plant supply (US)            |
-| 2021  | Colonial Pipeline Ransomware | Fuel pipelines in the US                                  |
+| 2021  | Colonial Pipeline Ransomware | Fuel pipelines in the US                                |
 | 2021  | Water Sector Attacks       | Chemical levels in water treatment facilities (US)        |
-| 2021  | Iranian Railway System Attack | Iran's railway system                                    |
+| 2021  | Iranian Railway System Attack | Iran's railway system                                  |
 
 ### So, how is the research towards Intrusion Detection Systems?
 
@@ -69,18 +69,23 @@ _**Paper**: "Learn-IDS: Bridging Gaps between Datasets and Learning-Based Networ
 
 - **Create our own dataset** by **performing our own complex APT attacks** over **our own virtual network**, first, over an mini-network and, later, over a more complex and more scaled network.
 
-### Virtual network implementation for research idea.
+### Virtual network implementation.
 
 
 ![alt text](/assets/images/network_implementation.png)
 
 **Description**
 
-Three hosts with Linux-based OS. Each host has an IPv4 address in the range 114.71.51.0/24:
-- Server 1 is 114.71.51.39/24
-- Server 2 is 114.71.51.41/24
-- Server 3 is 114.71.51.43/24
+- Three Linux-based hosts hosting different elements of our network implementation.
 
-Each Server will host different sub-networks composed by virtual machines, virtual switches, and virtual routers. To communicate these sub-networks between each other and to provide internet access to these sub-networks, each of the virtual routers' WAN interface should be in 'Bridge' mode. For the 'Bridge' mode to work properly, it will be necessary to assign an IPv4 address from the same network range as the IPv4 addresses of each host, in the range 114.71.51.0/24.
+| Server | External IP Address | Elements being hosted                                 | Network       |
+|--------|---------------------|-------------------------------------------------------|---------------|
+| ITM2   | 114.71.51.40        | Ubuntu 22.04 server & Windows 2022 server             |192.168.1.0/24 |
+| ITM4   | 114.71.51.42        | Windows 10 & Windows 11 clients                       |192.168.2.0/24 |
+| ITMX   | 114.71.51.XX        | Event-data collector based on Elasticsearch framework |192.168.3.0/24 |
 
-Another solution can be to set the router's WAN interface in 'NAT' mode. However, more complex configuration is needed. 'Bridge' mode is the simplest guaranteed strategy to provide external-network access to the sub-networks.
+
+- Each server will host different sub-networks composed by virtual machines, virtual switches, and virtual routers. 
+- To communicate these sub-networks between each other, and to provide internet access to these sub-networks, each of the virtual routers' WAN interface should be in 'Bridge' mode. 
+- For the 'Bridge' mode to work properly, it will be necessary to assign an IPv4 address from the same network range as the IPv4 addresses of each host, in the range 114.71.51.0/24.
+- Another solution can be to set the router's WAN interface in 'NAT' mode. However, more complex configuration is needed. 'Bridge' mode is the simplest guaranteed strategy to provide external-network access to the sub-networks.
