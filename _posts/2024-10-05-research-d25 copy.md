@@ -1,0 +1,24 @@
+---
+title: "Why we need two extra IP addresses?"
+date: 2024-10-05 00:00:00 +0900
+categories: []
+tags: []     # TAG names should always be lowercase
+---
+
+<!-- <hr style="height: 5px; background-color: black;"> -->
+
+- We have two servers.
+- The green boxes describe the virtual internal networks of our initial proposed implementation.
+- ITM2 server hosts the virtual internal network 192.168.1.0/24.
+- ITM4 server hosts the virtual internal network 192.168.2.0/24.
+- These networks have different internal IP ranges because VirtualBox always implements a virtual internal router. Therefore, if both networks have the same IP ranges, then we will have two internal virtual routers with the same IP address and this definetely will bring networking troubles. That is the reason of using different IP ranges.
+- Then, to communicate these two networks, we need virtual routers.
+- These routers interact with the physical network interface of their corresponding hosts through the VirtualBox Networking, which is described with a black box between the routers and the ethernet interface.
+- It is a black box because VirtualBox can implement several networking modes: Bridge, NAT Network, Host-only, and other non-relevant modes.
+- For our purposes, the best mode is Bridge because it guarantees communication between the two routers (and, therefore, communication between the two virtual internal networks), and also provides Internet access to the virtual internal networks. However, to implement Bridge mode, instead of the IP addresses 10.0.1.10/24 and 10.0.2.10/24 for both routers, we need IP addresses in the same range as the physical ethernet interface. These are the IP addresses that the Seoultech's IT department may give us permission to use upon your request.
+- I tried other modes such 'Nat Network' and 'Host-only' but until now unsuccessful to communicate the internal networks. In the case of 'Nat Network', it allows the internal networks to communicate with the Internet but not between them. On the other hand, with 'Host-only' mode neither Internet access nor communication between the internal networks have been achieved.
+- The green connection is a VPN that I implement to allow traffic between the internal networks and according to my troubleshooting, I always conclude that the problem is in the black box.
+- In conclusion, to proceed with the implementation, I believe that Bridge mode is the only suitable and most convenient solution to communicate the splitted networks.
+
+
+![alt text](/assets/images/network-for-explanation.png)
