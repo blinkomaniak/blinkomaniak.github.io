@@ -1,0 +1,1144 @@
+{
+  "name": "Test-OilRig",
+  "host_group": [
+    {
+      "paw": "kuacpt",
+      "sleep_min": 3,
+      "sleep_max": 3,
+      "watchdog": 1,
+      "group": "red",
+      "architecture": "amd64",
+      "platform": "windows",
+      "server": "http://192.168.2.13:8888",
+      "upstream_dest": "http://192.168.2.13:8888",
+      "username": "WINDOWS-SERVER\\Administrator",
+      "location": "C:\\Users\\Public\\caldera-read-team-agent.exe",
+      "pid": 5568,
+      "ppid": 6292,
+      "trusted": false,
+      "executors": [
+        "psh",
+        "proc",
+        "cmd"
+      ],
+      "privilege": "Elevated",
+      "exe_name": "caldera-read-team-agent.exe",
+      "host": "windows-server",
+      "contact": "HTTP",
+      "proxy_receivers": {},
+      "proxy_chain": [],
+      "origin_link_id": "",
+      "deadman_enabled": true,
+      "available_contacts": [
+        "HTTP"
+      ],
+      "host_ip_addrs": [
+        "192.168.1.21"
+      ],
+      "display_name": "windows-server$WINDOWS-SERVER\\Administrator",
+      "created": "2024-11-11T11:51:00Z",
+      "last_seen": "2024-11-12T07:27:15Z",
+      "links": [
+        {
+          "id": "f1cf3237-2ec4-4545-ade7-c4f87e2c203b",
+          "paw": "kuacpt",
+          "command": "Q2xlYXItSGlzdG9yeTtDbGVhcg==",
+          "plaintext_command": "Q2xlYXItSGlzdG9yeTtDbGVhcg==",
+          "status": 0,
+          "score": 0,
+          "jitter": 0,
+          "decide": "2024-11-11T11:51:00Z",
+          "pin": 0,
+          "pid": "2288",
+          "facts": [],
+          "relationships": [],
+          "used": [],
+          "unique": "f1cf3237-2ec4-4545-ade7-c4f87e2c203b",
+          "collect": "2024-11-11T11:51:00Z",
+          "finish": "2024-11-11T11:51:01Z",
+          "ability": {
+            "ability_id": "43b3754c-def4-4699-a673-1d85648fda6a",
+            "tactic": "defense-evasion",
+            "technique_name": "Indicator Removal on Host: Clear Command History",
+            "technique_id": "T1070.003",
+            "name": "Avoid logs",
+            "description": "Stop terminal from logging history",
+            "executors": [
+              {
+                "name": "sh",
+                "platform": "darwin",
+                "command": "> $HOME/.bash_history && unset HISTFILE",
+                "code": null,
+                "language": null,
+                "build_target": null,
+                "payloads": [],
+                "uploads": [],
+                "timeout": 60,
+                "parsers": [],
+                "cleanup": [],
+                "variations": [],
+                "additional_info": {}
+              },
+              {
+                "name": "sh",
+                "platform": "linux",
+                "command": "> $HOME/.bash_history && unset HISTFILE",
+                "code": null,
+                "language": null,
+                "build_target": null,
+                "payloads": [],
+                "uploads": [],
+                "timeout": 60,
+                "parsers": [],
+                "cleanup": [],
+                "variations": [],
+                "additional_info": {}
+              },
+              {
+                "name": "psh",
+                "platform": "windows",
+                "command": "Clear-History;Clear",
+                "code": null,
+                "language": null,
+                "build_target": null,
+                "payloads": [],
+                "uploads": [],
+                "timeout": 60,
+                "parsers": [],
+                "cleanup": [],
+                "variations": [],
+                "additional_info": {}
+              }
+            ],
+            "requirements": [],
+            "privilege": null,
+            "repeatable": false,
+            "buckets": [
+              "defense-evasion"
+            ],
+            "additional_info": {},
+            "access": {},
+            "singleton": false,
+            "plugin": "stockpile",
+            "delete_payload": true
+          },
+          "executor": {
+            "name": "psh",
+            "platform": "windows",
+            "command": "Clear-History;Clear",
+            "code": null,
+            "language": null,
+            "build_target": null,
+            "payloads": [],
+            "uploads": [],
+            "timeout": 60,
+            "parsers": [],
+            "cleanup": [],
+            "variations": [],
+            "additional_info": {}
+          },
+          "cleanup": 0,
+          "visibility": {
+            "score": 50,
+            "adjustments": []
+          },
+          "host": "windows-server",
+          "output": "False",
+          "deadman": false,
+          "agent_reported_time": "2024-11-11T11:50:57Z"
+        }
+      ],
+      "pending_contact": "HTTP"
+    }
+  ],
+  "start": "2024-11-11T17:07:35Z",
+  "steps": {
+    "kuacpt": {
+      "steps": [
+        {
+          "link_id": "216fdb88-e361-462e-8979-701d46aea69b",
+          "ability_id": "ed2471a9-1eeb-4787-a5d8-61f66b278a50",
+          "command": "cscript /nologo computername.vbs",
+          "plaintext_command": "cscript /nologo computername.vbs",
+          "delegated": "2024-11-11T17:07:35Z",
+          "run": "2024-11-11T17:07:59Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 1932,
+          "description": "Executes the payload to collect the hostname of the victim machine. \n",
+          "name": "OilRig Execute VBS payload to collect hostname",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Information Discovery",
+            "technique_id": "T1082"
+          },
+          "output": {
+            "stdout": "windows-server",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:07:59Z"
+        },
+        {
+          "link_id": "1065054d-1947-46d2-9fb7-1933db2b8b4b",
+          "ability_id": "88378065-bedf-46b9-a8b7-bc5897f4abcb",
+          "command": "cscript /nologo username.vbs",
+          "plaintext_command": "cscript /nologo username.vbs",
+          "delegated": "2024-11-11T17:08:00Z",
+          "run": "2024-11-11T17:08:52Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 6744,
+          "description": "Executes the payload to collect the username of the victim machine. \n",
+          "name": "OilRig Execute VBS payload to collect username",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Owner/User Discovery",
+            "technique_id": "T1033"
+          },
+          "output": {
+            "stdout": "administrator",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:08:52Z"
+        },
+        {
+          "link_id": "c1d9c07e-3a4c-491b-9476-0a789fad72d7",
+          "ability_id": "0386ef16-757e-425c-8355-88e5be40eb32",
+          "command": "whoami",
+          "plaintext_command": "whoami",
+          "delegated": "2024-11-11T17:08:55Z",
+          "run": "2024-11-11T17:09:51Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 6008,
+          "description": "Obtain user from current session",
+          "name": "OilRig Current User",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Owner/User Discovery",
+            "technique_id": "T1033"
+          },
+          "output": {
+            "stdout": "windows-server\\administrator",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:09:51Z"
+        },
+        {
+          "link_id": "ab0e5d38-f5bf-46cc-9487-f550d9d2b05e",
+          "ability_id": "a9861ea9-4f9a-46c9-ba60-15a02806dfdc",
+          "command": "hostname",
+          "plaintext_command": "hostname",
+          "delegated": "2024-11-11T17:09:55Z",
+          "run": "2024-11-11T17:10:51Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7960,
+          "description": "Find the hostname",
+          "name": "OilRig Collect hostname",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Information Discovery",
+            "technique_id": "T1082"
+          },
+          "output": {
+            "stdout": "windows-server",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:10:50Z"
+        },
+        {
+          "link_id": "7d90d7e7-31a1-4b55-a383-97f5c3b8f2f7",
+          "ability_id": "628e8ad3-14af-4670-b797-bcf175a42842",
+          "command": "ipconfig /all",
+          "plaintext_command": "ipconfig /all",
+          "delegated": "2024-11-11T17:10:55Z",
+          "run": "2024-11-11T17:11:38Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7704,
+          "description": "View network configuration information for host",
+          "name": "OilRig Network Interface Configuration",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Network Configuration Discovery",
+            "technique_id": "T1016"
+          },
+          "output": {
+            "stdout": "Windows IP Configuration   Host Name . . . . . . . . . . . . : windows-server   Primary Dns Suffix  . . . . . . . :    Node Type . . . . . . . . . . . . : Hybrid   IP Routing Enabled. . . . . . . . : No   WINS Proxy Enabled. . . . . . . . : NoEthernet adapter Ethernet:   Connection-specific DNS Suffix  . :    Description . . . . . . . . . . . : Intel(R) PRO/1000 MT Network Connection   Physical Address. . . . . . . . . : 08-00-27-83-24-CB   DHCP Enabled. . . . . . . . . . . : No   Autoconfiguration Enabled . . . . : Yes   Link-local IPv6 Address . . . . . : fe80::5588:53e8:2e27:9e65%7(Preferred)    IPv4 Address. . . . . . . . . . . : 192.168.1.21(Preferred)    Subnet Mask . . . . . . . . . . . : 255.255.255.0   Default Gateway . . . . . . . . . : 192.168.1.1   DHCPv6 IAID . . . . . . . . . . . : 352845863   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2E-9F-1E-ED-08-00-27-83-24-CB   DNS Servers . . . . . . . . . . . : 8.8.8.8                                       4.4.4.4   NetBIOS over Tcpip. . . . . . . . : Enabled",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:11:37Z"
+        },
+        {
+          "link_id": "966e403a-8d07-40ac-b6a7-019024236177",
+          "ability_id": "13d5ab62-c05a-4d25-bd8f-e3b27a5be611",
+          "command": "net user /domain",
+          "plaintext_command": "net user /domain",
+          "delegated": "2024-11-11T17:11:40Z",
+          "run": "2024-11-11T17:12:19Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 3464,
+          "description": "The net utility is executed via cmd to enumerate domain user accounts.",
+          "name": "OilRig Domain Account Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Account Discovery: Domain Account",
+            "technique_id": "T1087.002"
+          },
+          "output": {
+            "stdout": "The request will be processed at a domain controller for domain WORKGROUP.",
+            "stderr": "System error 1355 has occurred.The specified domain either does not exist or could not be contacted.",
+            "exit_code": "2"
+          },
+          "agent_reported_time": "2024-11-11T17:12:18Z"
+        },
+        {
+          "link_id": "aa7cdb04-ed70-46aa-96b6-2338c9f2d481",
+          "ability_id": "e0b534a6-bff3-4964-8f7b-863ddee224b0",
+          "command": "net group /domain",
+          "plaintext_command": "net group /domain",
+          "delegated": "2024-11-11T17:12:20Z",
+          "run": "2024-11-11T17:12:56Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7728,
+          "description": "The net utility is executed via cmd to enumerate group accounts.",
+          "name": "OilRig Group Account Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+          },
+          "output": {
+            "stdout": "The request will be processed at a domain controller for domain WORKGROUP.",
+            "stderr": "System error 1355 has occurred.The specified domain either does not exist or could not be contacted.",
+            "exit_code": "2"
+          },
+          "agent_reported_time": "2024-11-11T17:12:54Z"
+        },
+        {
+          "link_id": "0b08e7d6-1da8-458c-bfae-e47e55b5f038",
+          "ability_id": "3d450711-1062-4276-8bff-bb78ec4f4519",
+          "command": "net group \"domain admins\" /domain",
+          "plaintext_command": "net group \"domain admins\" /domain",
+          "delegated": "2024-11-11T17:13:00Z",
+          "run": "2024-11-11T17:13:46Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7428,
+          "description": "The net utility is executed via cmd to enumerate the \"domain admins\" group",
+          "name": "OilRig \"domain admins\" Group Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+          },
+          "output": {
+            "stdout": "The request will be processed at a domain controller for domain WORKGROUP.",
+            "stderr": "System error 1355 has occurred.The specified domain either does not exist or could not be contacted.",
+            "exit_code": "2"
+          },
+          "agent_reported_time": "2024-11-11T17:13:45Z"
+        },
+        {
+          "link_id": "a1949e46-804b-4c24-9116-b91d3ab6885d",
+          "ability_id": "29c018ed-eb3e-4ddb-90ec-ba3d928a00e8",
+          "command": "net group \"Exchange Trusted Subsystem\" /domain",
+          "plaintext_command": "net group \"Exchange Trusted Subsystem\" /domain",
+          "delegated": "2024-11-11T17:13:50Z",
+          "run": "2024-11-11T17:14:39Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7636,
+          "description": "The net utility is executed via cmd to enumerate the \"Exchange Trusted Subsystem\" group",
+          "name": "OilRig \"Exchange Trusted Subsystem\" Group Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+          },
+          "output": {
+            "stdout": "The request will be processed at a domain controller for domain WORKGROUP.",
+            "stderr": "System error 1355 has occurred.The specified domain either does not exist or could not be contacted.",
+            "exit_code": "2"
+          },
+          "agent_reported_time": "2024-11-11T17:14:37Z"
+        },
+        {
+          "link_id": "69bf02e5-a949-4792-a9a6-874578388712",
+          "ability_id": "41ce9dd8-dc9f-4fba-8ce9-9ef5aaee3d19",
+          "command": "net accounts /domain",
+          "plaintext_command": "net accounts /domain",
+          "delegated": "2024-11-11T17:14:40Z",
+          "run": "2024-11-11T17:15:16Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7196,
+          "description": "View domain account settings and password policy",
+          "name": "OilRig List domain account settings",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Password Policy Discovery",
+            "technique_id": "T1021"
+          },
+          "output": {
+            "stdout": "The request will be processed at a domain controller for domain WORKGROUP.",
+            "stderr": "System error 1355 has occurred.The specified domain either does not exist or could not be contacted.",
+            "exit_code": "2"
+          },
+          "agent_reported_time": "2024-11-11T17:15:14Z"
+        },
+        {
+          "link_id": "0e0ad54d-f570-4910-815a-325dc7bdd8ba",
+          "ability_id": "821fd81e-2086-4ea6-b792-fb9e044e2323",
+          "command": "net user",
+          "plaintext_command": "net user",
+          "delegated": "2024-11-11T17:15:21Z",
+          "run": "2024-11-11T17:15:55Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7760,
+          "description": "Enumerate user accounts",
+          "name": "OilRig Local Account Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Account Discovery: Local Account",
+            "technique_id": "T1087.001"
+          },
+          "output": {
+            "stdout": "User accounts for \\\\WINDOWS-SERVER-------------------------------------------------------------------------------Administrator            DefaultAccount           Guest                    WDAGUtilityAccount       The command completed successfully.",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:15:52Z"
+        },
+        {
+          "link_id": "ccac68f6-087a-4d03-9b3c-82d60bb139ee",
+          "ability_id": "ae4e4c08-82cb-4a17-a873-660f851a1a38",
+          "command": "net localgroup administrators",
+          "plaintext_command": "net localgroup administrators",
+          "delegated": "2024-11-11T17:15:56Z",
+          "run": "2024-11-11T17:16:37Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 6552,
+          "description": "View the details and members of the \"administrators\" local group",
+          "name": "OilRig \"administrators\" local group discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Local Groups",
+            "technique_id": "T1069.001"
+          },
+          "output": {
+            "stdout": "Alias name     administratorsComment        Administrators have complete and unrestricted access to the computer/domainMembers-------------------------------------------------------------------------------AdministratorThe command completed successfully.",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:16:34Z"
+        },
+        {
+          "link_id": "4696f926-317a-4f13-acf1-afb046852efa",
+          "ability_id": "cb8e9faa-ac00-48d8-a359-88044a2c0252",
+          "command": "netstat -na",
+          "plaintext_command": "netstat -na",
+          "delegated": "2024-11-11T17:16:41Z",
+          "run": "2024-11-11T17:17:31Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7920,
+          "description": "Find system network connections",
+          "name": "OilRig View Network Connections",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Network Connections Discovery",
+            "technique_id": "T1049"
+          },
+          "output": {
+            "stdout": "Active Connections  Proto  Local Address          Foreign Address        State  TCP    0.0.0.0:22             0.0.0.0:0              LISTENING  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING  TCP    0.0.0.0:5985           0.0.0.0:0              LISTENING  TCP    0.0.0.0:47001          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49668          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49669          0.0.0.0:0              LISTENING  TCP    0.0.0.0:49678          0.0.0.0:0              LISTENING  TCP    127.0.0.1:6789         0.0.0.0:0              LISTENING  TCP    127.0.0.1:6789         127.0.0.1:49718        ESTABLISHED  TCP    127.0.0.1:6789         127.0.0.1:49720        ESTABLISHED  TCP    127.0.0.1:6789         127.0.0.1:49722        ESTABLISHED  TCP    127.0.0.1:6789         127.0.0.1:49724        ESTABLISHED  TCP    127.0.0.1:6789         127.0.0.1:49729        ESTABLISHED  TCP    127.0.0.1:49718        127.0.0.1:6789         ESTABLISHED  TCP    127.0.0.1:49720        127.0.0.1:6789         ESTABLISHED  TCP    127.0.0.1:49722        127.0.0.1:6789         ESTABLISHED  TCP    127.0.0.1:49724        127.0.0.1:6789         ESTABLISHED  TCP    127.0.0.1:49729        127.0.0.1:6789         ESTABLISHED  TCP    192.168.1.21:22        192.168.2.101:51596    ESTABLISHED  TCP    192.168.1.21:139       0.0.0.0:0              LISTENING  TCP    192.168.1.21:49679     192.168.1.201:8220     ESTABLISHED  TCP    192.168.1.21:50575     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:56372     142.251.170.94:443     CLOSE_WAIT  TCP    192.168.1.21:56582     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:57134     192.168.2.200:9200     ESTABLISHED  TCP    192.168.1.21:57365     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:57369     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:57395     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:57406     192.168.2.13:8888      TIME_WAIT  TCP    192.168.1.21:57416     192.168.2.13:8888      TIME_WAIT  TCP    192.168.1.21:57419     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:57423     192.168.2.13:8888      ESTABLISHED  TCP    192.168.1.21:57428     192.168.2.200:9200     ESTABLISHED  TCP    192.168.1.21:57429     192.168.2.200:9200     ESTABLISHED  TCP    [::]:22                [::]:0                 LISTENING  TCP    [::]:135               [::]:0                 LISTENING  TCP    [::]:445               [::]:0                 LISTENING  TCP    [::]:5357              [::]:0                 LISTENING  TCP    [::]:5985              [::]:0                 LISTENING  TCP    [::]:47001             [::]:0                 LISTENING  TCP    [::]:49664             [::]:0                 LISTENING  TCP    [::]:49665             [::]:0                 LISTENING  TCP    [::]:49666             [::]:0                 LISTENING  TCP    [::]:49667             [::]:0                 LISTENING  TCP    [::]:49668             [::]:0                 LISTENING  TCP    [::]:49669             [::]:0                 LISTENING  TCP    [::]:49678             [::]:0                 LISTENING  UDP    0.0.0.0:123            *:*                      UDP    0.0.0.0:500            *:*                      UDP    0.0.0.0:3702           *:*                      UDP    0.0.0.0:3702           *:*                      UDP    0.0.0.0:4500           *:*                      UDP    0.0.0.0:5353           *:*                      UDP    0.0.0.0:5353           *:*                      UDP    0.0.0.0:5353           *:*                      UDP    0.0.0.0:5355           *:*                      UDP    0.0.0.0:55695          *:*                      UDP    0.0.0.0:63114          *:*                      UDP    127.0.0.1:55694        127.0.0.1:55694          UDP    192.168.1.21:137       *:*                      UDP    192.168.1.21:138       *:*                      UDP    [::]:123               *:*                      UDP    [::]:500               *:*                      UDP    [::]:3702              *:*                      UDP    [::]:3702              *:*                      UDP    [::]:4500              *:*                      UDP    [::]:5353              *:*                      UDP    [::]:5353              *:*                      UDP    [::]:5355              *:*                      UDP    [::]:55696             *:*                      UDP    [::]:63114             *:*                    ",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:17:32Z"
+        },
+        {
+          "link_id": "605da10a-c75b-4908-9f80-8fa071f3434c",
+          "ability_id": "de39f574-f6cc-4026-973e-c5370b36220b",
+          "command": "tasklist",
+          "plaintext_command": "tasklist",
+          "delegated": "2024-11-11T17:17:36Z",
+          "run": "2024-11-11T17:18:34Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 7780,
+          "description": "View running processes on system",
+          "name": "OilRig Process discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Process Discovery",
+            "technique_id": "T1057"
+          },
+          "output": {
+            "stdout": "Image Name                     PID Session Name        Session#    Mem Usage========================= ======== ================ =========== ============System Idle Process              0 Services                   0          8 KSystem                           4 Services                   0        156 KRegistry                       124 Services                   0     69,096 Ksmss.exe                       376 Services                   0      1,284 Kcsrss.exe                      480 Services                   0      6,340 Kcsrss.exe                      552 Console                    1      6,712 Kwininit.exe                    576 Services                   0      6,952 Kwinlogon.exe                   620 Console                    1     11,640 Kservices.exe                   696 Services                   0      9,340 Klsass.exe                      716 Services                   0     17,648 Ksvchost.exe                    836 Services                   0     23,416 Kfontdrvhost.exe                864 Services                   0      3,448 Kfontdrvhost.exe                872 Console                    1      4,840 Ksvchost.exe                    956 Services                   0     11,848 Ksvchost.exe                    996 Services                   0      8,356 Kdwm.exe                        436 Console                    1    117,536 Ksvchost.exe                    780 Services                   0     10,080 Ksvchost.exe                   1144 Services                   0      5,368 Ksvchost.exe                   1152 Services                   0     12,300 Ksvchost.exe                   1204 Services                   0     23,484 Ksvchost.exe                   1280 Services                   0      7,156 Ksvchost.exe                   1308 Services                   0      7,780 Ksvchost.exe                   1316 Services                   0      7,476 KVBoxService.exe               1364 Services                   0      7,156 Ksvchost.exe                   1416 Services                   0     11,020 Ksvchost.exe                   1448 Services                   0     12,864 Ksvchost.exe                   1456 Services                   0      5,848 Ksvchost.exe                   1464 Services                   0      7,840 Ksvchost.exe                   1472 Services                   0     15,608 Ksvchost.exe                   1600 Services                   0      8,536 Ksvchost.exe                   1656 Services                   0     10,696 Ksvchost.exe                   1708 Services                   0      6,084 Ksvchost.exe                   1724 Services                   0      8,932 Ksvchost.exe                   1732 Services                   0      8,780 Ksvchost.exe                   1788 Services                   0     12,668 Ksvchost.exe                   1812 Services                   0      7,536 Ksvchost.exe                   1836 Services                   0     16,536 Ksvchost.exe                   1976 Services                   0      7,756 Ksvchost.exe                   2008 Services                   0      9,092 Ksvchost.exe                   2244 Services                   0      6,968 Ksvchost.exe                   2348 Services                   0      7,172 Ksvchost.exe                   2356 Services                   0      8,204 Kspoolsv.exe                   2416 Services                   0     17,292 Ksvchost.exe                   2488 Services                   0     14,304 Ksvchost.exe                   2496 Services                   0     31,340 Ksvchost.exe                   2512 Services                   0     10,832 Ksvchost.exe                   2520 Services                   0      7,048 Ksvchost.exe                   2552 Services                   0      6,796 Ksvchost.exe                   2572 Services                   0      5,668 Ksvchost.exe                   2608 Services                   0     19,184 Ksvchost.exe                   2620 Services                   0      7,696 Ksvchost.exe                   2672 Services                   0     11,848 KSysmon64.exe                  2756 Services                   0     17,768 Ksvchost.exe                   2764 Services                   0     11,692 Kwlms.exe                      2828 Services                   0      3,608 KMsMpEng.exe                   2868 Services                   0     56,636 Kelastic-endpoint.exe          2888 Services                   0     73,992 Ksvchost.exe                   2792 Services                   0      8,560 Ksvchost.exe                   3128 Services                   0      7,120 Ksvchost.exe                   3248 Services                   0     12,884 Ksvchost.exe                   3444 Services                   0      9,620 Kelastic-agent.exe             3664 Services                   0     43,796 KAggregatorHost.exe            2896 Services                   0      4,708 Kagentbeat.exe                 4768 Services                   0    189,584 Kagentbeat.exe                 4776 Services                   0    140,600 Kagentbeat.exe                 4788 Services                   0    131,264 Kagentbeat.exe                 4800 Services                   0    156,480 Kconhost.exe                   4216 Services                   0     12,800 Kconhost.exe                   4232 Services                   0     12,808 Kconhost.exe                   4652 Services                   0     12,808 Kconhost.exe                   3756 Services                   0     12,800 Kunsecapp.exe                  4860 Services                   0      6,788 Kauditbeat.exe                 4892 Services                   0     53,820 Ksvchost.exe                   3144 Services                   0     13,688 Ksvchost.exe                   1168 Services                   0     18,280 Kmsdtc.exe                     1664 Services                   0     10,872 Ksvchost.exe                   4904 Services                   0     12,640 Ksvchost.exe                   2432 Services                   0     14,700 Ksvchost.exe                   2600 Services                   0     14,288 Ksvchost.exe                   4508 Services                   0     12,116 Ksihost.exe                    2544 Console                    1     29,964 Ksvchost.exe                   1848 Console                    1     15,876 Ksvchost.exe                    680 Console                    1     29,716 Ktaskhostw.exe                 1400 Console                    1     12,828 Ksvchost.exe                   3340 Services                   0     15,204 Ksvchost.exe                   4712 Services                   0      7,700 Kctfmon.exe                    3896 Console                    1     20,932 Ksvchost.exe                   3028 Services                   0     12,652 Ksvchost.exe                   5248 Services                   0     11,072 Kexplorer.exe                  5636 Console                    1    154,832 KStartMenuExperienceHost.e     6032 Console                    1     66,052 KTextInputHost.exe             6040 Console                    1     52,372 KServerManager.exe             6076 Console                    1    114,940 KRuntimeBroker.exe             2124 Console                    1     21,520 KSearchApp.exe                 5244 Console                    1    184,396 KRuntimeBroker.exe             6152 Console                    1     36,016 KRuntimeBroker.exe             6352 Console                    1     22,108 KVBoxTray.exe                  6748 Console                    1     15,416 Ksvchost.exe                   6916 Console                    1     17,632 Kdllhost.exe                   5620 Console                    1     12,504 Ksshd.exe                       560 Services                   0      7,728 Ksshd.exe                      6852 Services                   0      8,356 Ksshd.exe                      1124 Services                   0      8,376 Kconhost.exe                   5328 Services                   0      5,268 Kcmd.exe                       3492 Services                   0      4,756 Kpowershell.exe                6576 Services                   0     82,768 Kchrome.exe                    6976 Console                    1    156,840 Kchrome.exe                    4324 Console                    1      8,296 Kchrome.exe                    7148 Console                    1     45,188 Kchrome.exe                    3288 Console                    1     19,616 Kchrome.exe                    5608 Console                    1    233,064 Kchrome.exe                    1020 Console                    1    123,068 Kchrome.exe                    2020 Console                    1     71,608 Kpowershell.exe                6292 Console                    1    105,012 Kconhost.exe                   6928 Console                    1     23,568 Kchrome.exe                    6872 Console                    1     61,192 Kchrome.exe                    5856 Console                    1     31,288 Kcaldera-read-team-agent.e     5568 Console                    1     15,400 Kconhost.exe                   3180 Console                    1     13,864 KShellExperienceHost.exe        136 Console                    1     58,456 KRuntimeBroker.exe             3112 Console                    1     22,144 Ksvchost.exe                   2088 Services                   0      8,972 Ksvchost.exe                   3024 Services                   0     20,464 Ksvchost.exe                   1216 Services                   0      7,596 KWmiPrvSE.exe                  7404 Services                   0     23,116 KWmiPrvSE.exe                  7924 Services                   0     10,416 KWmiPrvSE.exe                  1856 Services                   0     13,636 Kcmd.exe                       7780 Console                    1      4,908 Ktasklist.exe                  3472 Console                    1      9,864 K",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:18:36Z"
+        },
+        {
+          "link_id": "58c309d7-9634-47d6-9d5a-e03bd14d7047",
+          "ability_id": "e6eb7d18-606e-4889-8924-f75cafa92811",
+          "command": "sc query",
+          "plaintext_command": "sc query",
+          "delegated": "2024-11-11T17:18:36Z",
+          "run": "2024-11-11T17:19:31Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 1264,
+          "description": "Gather information about registered local system services",
+          "name": "OilRig System Service Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Service Discovery",
+            "technique_id": "T1007"
+          },
+          "output": {
+            "stdout": "SERVICE_NAME: auditbeatDISPLAY_NAME: auditbeat        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: BFEDISPLAY_NAME: Base Filtering Engine        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: BrokerInfrastructureDISPLAY_NAME: Background Tasks Infrastructure Service        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: camsvcDISPLAY_NAME: Capability Access Manager Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: CDPSvcDISPLAY_NAME: Connected Devices Platform Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: CoreMessagingRegistrarDISPLAY_NAME: CoreMessaging        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: CryptSvcDISPLAY_NAME: Cryptographic Services        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: DcomLaunchDISPLAY_NAME: DCOM Server Process Launcher        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: DhcpDISPLAY_NAME: DHCP Client        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: DiagTrackDISPLAY_NAME: Connected User Experiences and Telemetry        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: DispBrokerDesktopSvcDISPLAY_NAME: Display Policy Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: DnscacheDISPLAY_NAME: DNS Client        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: DPSDISPLAY_NAME: Diagnostic Policy Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: Elastic AgentDISPLAY_NAME: Elastic Agent        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: ElasticEndpointDISPLAY_NAME: Elastic Endpoint        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: EventLogDISPLAY_NAME: Windows Event Log        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: EventSystemDISPLAY_NAME: COM+ Event System        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: fdPHostDISPLAY_NAME: Function Discovery Provider Host        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: FDResPubDISPLAY_NAME: Function Discovery Resource Publication        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: FontCacheDISPLAY_NAME: Windows Font Cache Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: gpsvcDISPLAY_NAME: Group Policy Client        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: IKEEXTDISPLAY_NAME: IKE and AuthIP IPsec Keying Modules        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: iphlpsvcDISPLAY_NAME: IP Helper        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: KeyIsoDISPLAY_NAME: CNG Key Isolation        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: LanmanServerDISPLAY_NAME: Server        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: LanmanWorkstationDISPLAY_NAME: Workstation        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: lmhostsDISPLAY_NAME: TCP/IP NetBIOS Helper        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: LSMDISPLAY_NAME: Local Session Manager        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: mpssvcDISPLAY_NAME: Windows Defender Firewall        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: MSDTCDISPLAY_NAME: Distributed Transaction Coordinator        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: NcbServiceDISPLAY_NAME: Network Connection Broker        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: netprofmDISPLAY_NAME: Network List Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: NlaSvcDISPLAY_NAME: Network Location Awareness        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: nsiDISPLAY_NAME: Network Store Interface Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: PcaSvcDISPLAY_NAME: Program Compatibility Assistant Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: PlugPlayDISPLAY_NAME: Plug and Play        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: PolicyAgentDISPLAY_NAME: IPsec Policy Agent        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: PowerDISPLAY_NAME: Power        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: ProfSvcDISPLAY_NAME: User Profile Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: RasManDISPLAY_NAME: Remote Access Connection Manager        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: RpcEptMapperDISPLAY_NAME: RPC Endpoint Mapper        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: RpcSsDISPLAY_NAME: Remote Procedure Call (RPC)        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: SamSsDISPLAY_NAME: Security Accounts Manager        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: ScheduleDISPLAY_NAME: Task Scheduler        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: SENSDISPLAY_NAME: System Event Notification Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: ShellHWDetectionDISPLAY_NAME: Shell Hardware Detection        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: SpoolerDISPLAY_NAME: Print Spooler        TYPE               : 110  WIN32_OWN_PROCESS  (interactive)        STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: sshdDISPLAY_NAME: OpenSSH SSH Server        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: SstpSvcDISPLAY_NAME: Secure Socket Tunneling Protocol Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: StateRepositoryDISPLAY_NAME: State Repository Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: StorSvcDISPLAY_NAME: Storage Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: SysMainDISPLAY_NAME: SysMain        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: Sysmon64DISPLAY_NAME: Sysmon64        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: SystemEventsBrokerDISPLAY_NAME: System Events Broker        TYPE               : 20  WIN32_SHARE_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: TabletInputServiceDISPLAY_NAME: Touch Keyboard and Handwriting Panel Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: ThemesDISPLAY_NAME: Themes        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: TimeBrokerSvcDISPLAY_NAME: Time Broker        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: TokenBrokerDISPLAY_NAME: Web Account Manager        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: TrkWksDISPLAY_NAME: Distributed Link Tracking Client        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: UALSVCDISPLAY_NAME: User Access Logging Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: UserManagerDISPLAY_NAME: User Manager        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: UsoSvcDISPLAY_NAME: Update Orchestrator Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: VBoxServiceDISPLAY_NAME: VirtualBox Guest Additions Service        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: W32TimeDISPLAY_NAME: Windows Time        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WcmsvcDISPLAY_NAME: Windows Connection Manager        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WinDefendDISPLAY_NAME: Microsoft Defender Antivirus Service        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WinHttpAutoProxySvcDISPLAY_NAME: WinHTTP Web Proxy Auto-Discovery Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WinmgmtDISPLAY_NAME: Windows Management Instrumentation        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WinRMDISPLAY_NAME: Windows Remote Management (WS-Management)        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WLMSDISPLAY_NAME: Windows Licensing Monitoring Service        TYPE               : 10  WIN32_OWN_PROCESS          STATE              : 4  RUNNING                                 (NOT_STOPPABLE, NOT_PAUSABLE, ACCEPTS_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WpnServiceDISPLAY_NAME: Windows Push Notifications System Service        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: wuauservDISPLAY_NAME: Windows Update        TYPE               : 30  WIN32          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: cbdhsvc_97674DISPLAY_NAME: Clipboard User Service_97674        TYPE               : f0   ERROR          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: CDPUserSvc_97674DISPLAY_NAME: Connected Devices Platform User Service_97674        TYPE               : f0   ERROR          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, IGNORES_SHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0SERVICE_NAME: WpnUserService_97674DISPLAY_NAME: Windows Push Notifications User Service_97674        TYPE               : f0   ERROR          STATE              : 4  RUNNING                                 (STOPPABLE, NOT_PAUSABLE, ACCEPTS_PRESHUTDOWN)        WIN32_EXIT_CODE    : 0  (0x0)        SERVICE_EXIT_CODE  : 0  (0x0)        CHECKPOINT         : 0x0        WAIT_HINT          : 0x0",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:19:28Z"
+        },
+        {
+          "link_id": "e2aa9b98-7283-41d6-a7e9-05910baf56cb",
+          "ability_id": "178bb431-4eaf-43b1-922c-f484ab54bbee",
+          "command": "systeminfo",
+          "plaintext_command": "systeminfo",
+          "delegated": "2024-11-11T17:19:36Z",
+          "run": "2024-11-11T17:20:10Z",
+          "status": 0,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 1636,
+          "description": "Gather detailed system information",
+          "name": "OilRig System Information Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Information Discovery",
+            "technique_id": "T1082"
+          },
+          "output": {
+            "stdout": "Host Name:                 WINDOWS-SERVEROS Name:                   Microsoft Windows Server 2022 Standard EvaluationOS Version:                10.0.20348 N/A Build 20348OS Manufacturer:           Microsoft CorporationOS Configuration:          Standalone ServerOS Build Type:             Multiprocessor FreeRegistered Owner:          Windows UserRegistered Organization:   Product ID:                00454-40000-00001-AA626Original Install Date:     10/15/2024, 2:49:41 AMSystem Boot Time:          11/11/2024, 8:07:32 PMSystem Manufacturer:       innotek GmbHSystem Model:              VirtualBoxSystem Type:               x64-based PCProcessor(s):              1 Processor(s) Installed.                           [01]: Intel64 Family 6 Model 158 Stepping 10 GenuineIntel ~3549 MhzBIOS Version:              innotek GmbH VirtualBox, 12/1/2006Windows Directory:         C:\\WindowsSystem Directory:          C:\\Windows\\system32Boot Device:               \\Device\\HarddiskVolume1System Locale:             en-us;English (United States)Input Locale:              en-us;English (United States)Time Zone:                 (UTC+09:00) SeoulTotal Physical Memory:     6,144 MBAvailable Physical Memory: 3,200 MBVirtual Memory: Max Size:  7,168 MBVirtual Memory: Available: 3,840 MBVirtual Memory: In Use:    3,328 MBPage File Location(s):     C:\\pagefile.sysDomain:                    WORKGROUPLogon Server:              \\\\WINDOWS-SERVERHotfix(s):                 3 Hotfix(s) Installed.                           [01]: KB5008882                           [02]: KB5011497                           [03]: KB5010523Network Card(s):           1 NIC(s) Installed.                           [01]: Intel(R) PRO/1000 MT Network Connection                                 Connection Name: Ethernet                                 DHCP Enabled:    No                                 IP address(es)                                 [01]: 192.168.1.21                                 [02]: fe80::5588:53e8:2e27:9e65Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.",
+            "stderr": "",
+            "exit_code": "0"
+          },
+          "agent_reported_time": "2024-11-11T17:20:08Z"
+        },
+        {
+          "link_id": "e23c1ffb-a4d5-4f72-be2b-5c0d28efd2f1",
+          "ability_id": "09502b3c-7541-4c11-92a9-f55e683a6355",
+          "command": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\"",
+          "plaintext_command": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\"",
+          "delegated": "2024-11-11T17:20:11Z",
+          "run": "2024-11-11T17:20:45Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 3708,
+          "description": "Query the Windows registry key HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default",
+          "name": "OilRig Query Registry",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Query Registry",
+            "technique_id": "T1012"
+          },
+          "output": {
+            "stdout": "",
+            "stderr": "ERROR: The system was unable to find the specified registry key or value.",
+            "exit_code": "1"
+          },
+          "agent_reported_time": "2024-11-11T17:20:45Z"
+        },
+        {
+          "link_id": "f6429cf4-323f-4575-a8d5-223fdef51aba",
+          "ability_id": "6a7b4ba0-a9bb-451d-ba9f-d3a2e8a82ffe",
+          "command": "net group \"SQL Admins\" /domain",
+          "plaintext_command": "net group \"SQL Admins\" /domain",
+          "delegated": "2024-11-11T17:20:46Z",
+          "run": "2024-11-11T17:21:38Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 396,
+          "description": "The net utility is executed via cmd to enumerate the \"SQL Admins\" group",
+          "name": "OilRig \"SQL Admins\" Group Discovery",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+          },
+          "output": {
+            "stdout": "The request will be processed at a domain controller for domain WORKGROUP.",
+            "stderr": "System error 1355 has occurred.The specified domain either does not exist or could not be contacted.",
+            "exit_code": "2"
+          },
+          "agent_reported_time": "2024-11-11T17:21:38Z"
+        },
+        {
+          "link_id": "846e93fe-5cba-471c-9629-b9f88b8d6313",
+          "ability_id": "d9c9a941-c0e8-4eed-8cc3-6511ad5b9e15",
+          "command": "del C:\\Users\\gosta\\AppData\\Roaming\\fsociety.dat C:\\Users\\Public\\Downloads\\plink.exe;",
+          "plaintext_command": "del C:\\Users\\gosta\\AppData\\Roaming\\fsociety.dat C:\\Users\\Public\\Downloads\\plink.exe;",
+          "delegated": "2024-11-11T17:21:41Z",
+          "run": "2024-11-11T17:22:15Z",
+          "status": 1,
+          "platform": "windows",
+          "executor": "cmd",
+          "pid": 1964,
+          "description": "Delete VALUEVAULT plink.exe.\n",
+          "name": "OilRig Cleanup on Gosta",
+          "attack": {
+            "tactic": "defense-evasion",
+            "technique_name": "Indicator Removal on Host: File Deletion",
+            "technique_id": "T1070.004"
+          },
+          "output": {
+            "stdout": "",
+            "stderr": "The system cannot find the path specified.",
+            "exit_code": "1"
+          },
+          "agent_reported_time": "2024-11-11T17:22:14Z"
+        }
+      ]
+    }
+  },
+  "finish": "2024-11-12T03:19:14Z",
+  "planner": "atomic",
+  "adversary": {
+    "adversary_id": "db88ae87-8884-42f1-aa06-d7ef9b45721d",
+    "name": "OilRig",
+    "description": "OilRig is a suspected Iranian threat group that has targeted Middle Eastern and international victims. (Emu)",
+    "atomic_ordering": [
+      "ed2471a9-1eeb-4787-a5d8-61f66b278a50",
+      "88378065-bedf-46b9-a8b7-bc5897f4abcb",
+      "0386ef16-757e-425c-8355-88e5be40eb32",
+      "a9861ea9-4f9a-46c9-ba60-15a02806dfdc",
+      "628e8ad3-14af-4670-b797-bcf175a42842",
+      "13d5ab62-c05a-4d25-bd8f-e3b27a5be611",
+      "e0b534a6-bff3-4964-8f7b-863ddee224b0",
+      "3d450711-1062-4276-8bff-bb78ec4f4519",
+      "29c018ed-eb3e-4ddb-90ec-ba3d928a00e8",
+      "41ce9dd8-dc9f-4fba-8ce9-9ef5aaee3d19",
+      "821fd81e-2086-4ea6-b792-fb9e044e2323",
+      "ae4e4c08-82cb-4a17-a873-660f851a1a38",
+      "cb8e9faa-ac00-48d8-a359-88044a2c0252",
+      "de39f574-f6cc-4026-973e-c5370b36220b",
+      "e6eb7d18-606e-4889-8924-f75cafa92811",
+      "178bb431-4eaf-43b1-922c-f484ab54bbee",
+      "09502b3c-7541-4c11-92a9-f55e683a6355",
+      "7971246d-1392-411e-a803-a7946cf9e4d2",
+      "6a7b4ba0-a9bb-451d-ba9f-d3a2e8a82ffe",
+      "f9f1bd68-ec0a-47e7-8645-210844190d92",
+      "a23fb84f-dfb7-4d07-a6ec-0352ae983651",
+      "021245dd-c0be-4900-bd6c-1c680f00a237",
+      "2f3be960-5c00-4f03-a9c2-da09c31d38d9",
+      "7aaecfb7-a1eb-477c-8d53-ab3009389623",
+      "5f7dc4b3-1287-4a25-b0b0-b6e73756cc11",
+      "87d3322b-a435-47b5-9f97-a8db4f86dad5",
+      "48927544-5a18-11ed-9b6a-0242ac120002",
+      "5c279562-a004-4d9c-9ec6-a7dc4997f699",
+      "f96e8195-8b0f-4b87-bdce-748dfda2861f",
+      "f01e86f9-0b66-4191-beee-324c380690df",
+      "845d36f1-13b6-4d42-a384-aa2f4af9bc27",
+      "6482ba12-fa47-409c-bab8-704de6475e38",
+      "f3df5a83-2a5a-4277-8763-8fb51032d3fc",
+      "212995b5-acfc-404b-b3a9-a19cc0afa9a5",
+      "dc2efbdd-3ab4-44a0-9839-385540b8a8cc",
+      "5cb977ae-87c8-450f-b016-f414b42ba60f",
+      "d5b83af2-b79e-438d-acfc-2641282df698",
+      "98279c81-d5a0-4ec4-9d40-a6e87d1f9bd2",
+      "44073aa3-70e9-4a48-86b7-c25b6f29c25c",
+      "f1f34439-ca0d-4fe7-99af-a198a29b6a3e",
+      "885c14a2-bc56-4176-8671-4cb25489ae39",
+      "0c5cf9e2-3152-4b4c-9629-2ed7a00da09d",
+      "d9c9a941-c0e8-4eed-8cc3-6511ad5b9e15",
+      "16767c68-a865-46af-a0e4-ff8d742efc3f"
+    ],
+    "objective": "495a9828-cab1-44dd-a0ca-66e58177d8cc",
+    "tags": [],
+    "has_repeatable_abilities": false,
+    "plugin": "emu"
+  },
+  "jitter": "2/8",
+  "objectives": {
+    "id": "495a9828-cab1-44dd-a0ca-66e58177d8cc",
+    "name": "default",
+    "description": "This is a default objective that runs forever.",
+    "goals": [
+      {
+        "target": "exhaustion",
+        "value": "complete",
+        "count": 1048576,
+        "operator": "==",
+        "achieved": false
+      }
+    ],
+    "percentage": 0
+  },
+  "facts": [
+    {
+      "unique": "file.sensitive.extensionwav",
+      "trait": "file.sensitive.extension",
+      "name": "file.sensitive.extension",
+      "value": "wav",
+      "created": "2024-11-09T07:37:21Z",
+      "score": 1,
+      "source": "ed32b9c3-9593-4c33-b0db-e2007315096b",
+      "origin_type": "IMPORTED",
+      "links": [],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [],
+      "technique_id": ""
+    },
+    {
+      "unique": "file.sensitive.extensionyml",
+      "trait": "file.sensitive.extension",
+      "name": "file.sensitive.extension",
+      "value": "yml",
+      "created": "2024-11-09T07:37:21Z",
+      "score": 1,
+      "source": "ed32b9c3-9593-4c33-b0db-e2007315096b",
+      "origin_type": "IMPORTED",
+      "links": [],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [],
+      "technique_id": ""
+    },
+    {
+      "unique": "file.sensitive.extensionpng",
+      "trait": "file.sensitive.extension",
+      "name": "file.sensitive.extension",
+      "value": "png",
+      "created": "2024-11-09T07:37:21Z",
+      "score": 1,
+      "source": "ed32b9c3-9593-4c33-b0db-e2007315096b",
+      "origin_type": "IMPORTED",
+      "links": [],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [],
+      "technique_id": ""
+    },
+    {
+      "unique": "server.malicious.urlkeyloggedsite.com",
+      "trait": "server.malicious.url",
+      "name": "server.malicious.url",
+      "value": "keyloggedsite.com",
+      "created": "2024-11-09T07:37:21Z",
+      "score": 1,
+      "source": "ed32b9c3-9593-4c33-b0db-e2007315096b",
+      "origin_type": "IMPORTED",
+      "links": [],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [],
+      "technique_id": ""
+    },
+    {
+      "unique": "host.ip.address192.168.1.21",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "192.168.1.21",
+      "created": "2024-11-11T17:11:38Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "7d90d7e7-31a1-4b55-a383-97f5c3b8f2f7",
+        "4696f926-317a-4f13-acf1-afb046852efa",
+        "e2aa9b98-7283-41d6-a7e9-05910baf56cb"
+      ],
+      "relationships": [
+        []
+      ],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1016"
+    },
+    {
+      "unique": "host.ip.address255.255.255.0",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "255.255.255.0",
+      "created": "2024-11-11T17:11:38Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "7d90d7e7-31a1-4b55-a383-97f5c3b8f2f7"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1016"
+    },
+    {
+      "unique": "host.ip.address192.168.1.1",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "192.168.1.1",
+      "created": "2024-11-11T17:11:38Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "7d90d7e7-31a1-4b55-a383-97f5c3b8f2f7"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1016"
+    },
+    {
+      "unique": "host.ip.address8.8.8.8",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "8.8.8.8",
+      "created": "2024-11-11T17:11:38Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "7d90d7e7-31a1-4b55-a383-97f5c3b8f2f7"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1016"
+    },
+    {
+      "unique": "host.ip.address4.4.4.4",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "4.4.4.4",
+      "created": "2024-11-11T17:11:38Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "7d90d7e7-31a1-4b55-a383-97f5c3b8f2f7"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1016"
+    },
+    {
+      "unique": "host.ip.address192.168.2.101",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "192.168.2.101",
+      "created": "2024-11-11T17:17:31Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "4696f926-317a-4f13-acf1-afb046852efa"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1049"
+    },
+    {
+      "unique": "host.ip.address192.168.1.201",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "192.168.1.201",
+      "created": "2024-11-11T17:17:31Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "4696f926-317a-4f13-acf1-afb046852efa"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1049"
+    },
+    {
+      "unique": "host.ip.address192.168.2.13",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "192.168.2.13",
+      "created": "2024-11-11T17:17:31Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "4696f926-317a-4f13-acf1-afb046852efa"
+      ],
+      "relationships": [
+        []
+      ],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1049"
+    },
+    {
+      "unique": "host.ip.address142.251.170.94",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "142.251.170.94",
+      "created": "2024-11-11T17:17:31Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "4696f926-317a-4f13-acf1-afb046852efa"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1049"
+    },
+    {
+      "unique": "host.ip.address192.168.2.200",
+      "trait": "host.ip.address",
+      "name": "host.ip.address",
+      "value": "192.168.2.200",
+      "created": "2024-11-11T17:17:31Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "4696f926-317a-4f13-acf1-afb046852efa"
+      ],
+      "relationships": [
+        []
+      ],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1049"
+    },
+    {
+      "unique": "host.file.pathC:\\pagefile.sys",
+      "trait": "host.file.path",
+      "name": "host.file.path",
+      "value": "C:\\pagefile.sys",
+      "created": "2024-11-11T17:20:10Z",
+      "score": 1,
+      "source": "b22b3913-82c0-4ca8-b5e6-56a1e111b0be",
+      "origin_type": "LEARNED",
+      "links": [
+        "e2aa9b98-7283-41d6-a7e9-05910baf56cb"
+      ],
+      "relationships": [],
+      "limit_count": -1,
+      "collected_by": [
+        "kuacpt"
+      ],
+      "technique_id": "T1082"
+    }
+  ],
+  "skipped_abilities": [
+    {
+      "kuacpt": [
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "7971246d-1392-411e-a803-a7946cf9e4d2",
+          "ability_name": "OilRig Targeted \"Gosta\" Account Discovery"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "f9f1bd68-ec0a-47e7-8645-210844190d92",
+          "ability_name": "OilRig nslookup WATERFALLS"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "a23fb84f-dfb7-4d07-a6ec-0352ae983651",
+          "ability_name": "OilRig Dump Credentials from Windows Credential Manager"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "021245dd-c0be-4900-bd6c-1c680f00a237",
+          "ability_name": "OilRig Exfil fsociety.dat"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "2f3be960-5c00-4f03-a9c2-da09c31d38d9",
+          "ability_name": "OilRig Copy webshell to THEBLOCK"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "7aaecfb7-a1eb-477c-8d53-ab3009389623",
+          "ability_name": "OilRig Copy webshell to WATERFALLS"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "5f7dc4b3-1287-4a25-b0b0-b6e73756cc11",
+          "ability_name": "OilRig Set file hidden attribute"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "87d3322b-a435-47b5-9f97-a8db4f86dad5",
+          "ability_name": "OilRig Current User (Kali Agent)"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "48927544-5a18-11ed-9b6a-0242ac120002",
+          "ability_name": "OilRig Network Interface Configuration (Kali Agent)"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "5c279562-a004-4d9c-9ec6-a7dc4997f699",
+          "ability_name": "OilRig View Network Connections (Kali Agent)"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "f96e8195-8b0f-4b87-bdce-748dfda2861f",
+          "ability_name": "OilRig Download Mimikatz (Kali Agent)"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "f01e86f9-0b66-4191-beee-324c380690df",
+          "ability_name": "OilRig Execute Mimikatz (Kali Agent)"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "845d36f1-13b6-4d42-a384-aa2f4af9bc27",
+          "ability_name": "OilRig Exfiltrate Mimikatz Output (Kali Agent)"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "6482ba12-fa47-409c-bab8-704de6475e38",
+          "ability_name": "OilRig Delete Mimikatz and MimiKatz Output (Kali Agent)"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "f3df5a83-2a5a-4277-8763-8fb51032d3fc",
+          "ability_name": "OilRig Download Plink"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "212995b5-acfc-404b-b3a9-a19cc0afa9a5",
+          "ability_name": "OilRig Run Plink"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "dc2efbdd-3ab4-44a0-9839-385540b8a8cc",
+          "ability_name": "OilRig RDP to WATERFALLS"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "5cb977ae-87c8-450f-b016-f414b42ba60f",
+          "ability_name": "OilRig Downloads PsExec"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "d5b83af2-b79e-438d-acfc-2641282df698",
+          "ability_name": "OilRig Downloads RDAT"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "98279c81-d5a0-4ec4-9d40-a6e87d1f9bd2",
+          "ability_name": "OilRig Downloads mom64.exe"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "44073aa3-70e9-4a48-86b7-c25b6f29c25c",
+          "ability_name": "OilRig PSEXEC is used to execute commands on ENDOFROAD"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "f1f34439-ca0d-4fe7-99af-a198a29b6a3e",
+          "ability_name": "OilRig File and Directory Discovery on ENDOFROAD"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "885c14a2-bc56-4176-8671-4cb25489ae39",
+          "ability_name": "OilRig Exfiltrate Data via EWS API to attacker-controlled email"
+        },
+        {
+          "reason": "Mismatched ability platform and executor",
+          "reason_id": 1,
+          "ability_id": "0c5cf9e2-3152-4b4c-9629-2ed7a00da09d",
+          "ability_name": "OilRig Cleanup via RDP"
+        },
+        {
+          "reason": "Fact dependency not fulfilled",
+          "reason_id": 3,
+          "ability_id": "16767c68-a865-46af-a0e4-ff8d742efc3f",
+          "ability_name": "OilRig Kill Gosta Agent"
+        }
+      ]
+    }
+  ]
+}

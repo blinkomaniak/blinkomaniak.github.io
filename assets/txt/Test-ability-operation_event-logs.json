@@ -1,0 +1,182 @@
+[
+    {
+        "command": "net group \"Exchange Trusted Subsystem\" /domain",
+        "plaintext_command": "net group \"Exchange Trusted Subsystem\" /domain",
+        "delegated_timestamp": "2024-11-13T08:46:39Z",
+        "collected_timestamp": "2024-11-13T08:47:01Z",
+        "finished_timestamp": "2024-11-13T08:47:01Z",
+        "status": 1,
+        "platform": "windows",
+        "executor": "cmd",
+        "pid": 520,
+        "agent_metadata": {
+            "paw": "epaylk",
+            "group": "red",
+            "architecture": "amd64",
+            "username": "SOMEDOMAIN\\Administrator",
+            "location": "C:\\Users\\Public\\caldera-red-team-agent.exe",
+            "pid": 7660,
+            "ppid": 2724,
+            "privilege": "Elevated",
+            "host": "windows-server",
+            "contact": "HTTP",
+            "created": "2024-11-13T08:30:24Z"
+        },
+        "ability_metadata": {
+            "ability_id": "29c018ed-eb3e-4ddb-90ec-ba3d928a00e8",
+            "ability_name": "OilRig \"Exchange Trusted Subsystem\" Group Discovery",
+            "ability_description": "The net utility is executed via cmd to enumerate the \"Exchange Trusted Subsystem\" group"
+        },
+        "operation_metadata": {
+            "operation_name": "Test-ability-operation (2024-11-13T08:46:40.562Z)",
+            "operation_start": "2024-11-13T08:46:39Z",
+            "operation_adversary": "Ability Tester"
+        },
+        "attack_metadata": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+        },
+        "output": {
+            "stdout": "",
+            "stderr": "The group name could not be found.More help is available by typing NET HELPMSG 2220.",
+            "exit_code": "2"
+        },
+        "agent_reported_time": "2024-11-13T08:47:01Z"
+    },
+    {
+        "command": "net group \"domain admins\" /domain",
+        "plaintext_command": "net group \"domain admins\" /domain",
+        "delegated_timestamp": "2024-11-13T08:47:04Z",
+        "collected_timestamp": "2024-11-13T08:47:56Z",
+        "finished_timestamp": "2024-11-13T08:47:56Z",
+        "status": 0,
+        "platform": "windows",
+        "executor": "cmd",
+        "pid": 5780,
+        "agent_metadata": {
+            "paw": "epaylk",
+            "group": "red",
+            "architecture": "amd64",
+            "username": "SOMEDOMAIN\\Administrator",
+            "location": "C:\\Users\\Public\\caldera-red-team-agent.exe",
+            "pid": 7660,
+            "ppid": 2724,
+            "privilege": "Elevated",
+            "host": "windows-server",
+            "contact": "HTTP",
+            "created": "2024-11-13T08:30:24Z"
+        },
+        "ability_metadata": {
+            "ability_id": "3d450711-1062-4276-8bff-bb78ec4f4519",
+            "ability_name": "OilRig \"domain admins\" Group Discovery",
+            "ability_description": "The net utility is executed via cmd to enumerate the \"domain admins\" group"
+        },
+        "operation_metadata": {
+            "operation_name": "Test-ability-operation (2024-11-13T08:46:40.562Z)",
+            "operation_start": "2024-11-13T08:46:39Z",
+            "operation_adversary": "Ability Tester"
+        },
+        "attack_metadata": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+        },
+        "output": {
+            "stdout": "Group name     Domain AdminsComment        Designated administrators of the domainMembers-------------------------------------------------------------------------------Administrator            The command completed successfully.",
+            "stderr": "",
+            "exit_code": "0"
+        },
+        "agent_reported_time": "2024-11-13T08:47:56Z"
+    },
+    {
+        "command": "net accounts /domain",
+        "plaintext_command": "net accounts /domain",
+        "delegated_timestamp": "2024-11-13T08:47:59Z",
+        "collected_timestamp": "2024-11-13T08:48:54Z",
+        "finished_timestamp": "2024-11-13T08:48:54Z",
+        "status": 0,
+        "platform": "windows",
+        "executor": "cmd",
+        "pid": 5048,
+        "agent_metadata": {
+            "paw": "epaylk",
+            "group": "red",
+            "architecture": "amd64",
+            "username": "SOMEDOMAIN\\Administrator",
+            "location": "C:\\Users\\Public\\caldera-red-team-agent.exe",
+            "pid": 7660,
+            "ppid": 2724,
+            "privilege": "Elevated",
+            "host": "windows-server",
+            "contact": "HTTP",
+            "created": "2024-11-13T08:30:24Z"
+        },
+        "ability_metadata": {
+            "ability_id": "41ce9dd8-dc9f-4fba-8ce9-9ef5aaee3d19",
+            "ability_name": "OilRig List domain account settings",
+            "ability_description": "View domain account settings and password policy"
+        },
+        "operation_metadata": {
+            "operation_name": "Test-ability-operation (2024-11-13T08:46:40.562Z)",
+            "operation_start": "2024-11-13T08:46:39Z",
+            "operation_adversary": "Ability Tester"
+        },
+        "attack_metadata": {
+            "tactic": "discovery",
+            "technique_name": "Password Policy Discovery",
+            "technique_id": "T1021"
+        },
+        "output": {
+            "stdout": "Force user logoff how long after time expires?:       NeverMinimum password age (days):                          1Maximum password age (days):                          42Minimum password length:                              7Length of password history maintained:                24Lockout threshold:                                    NeverLockout duration (minutes):                           30Lockout observation window (minutes):                 30Computer role:                                        PRIMARYThe command completed successfully.",
+            "stderr": "",
+            "exit_code": "0"
+        },
+        "agent_reported_time": "2024-11-13T08:48:55Z"
+    },
+    {
+        "command": "net group \"SQL Admins\" /domain",
+        "plaintext_command": "net group \"SQL Admins\" /domain",
+        "delegated_timestamp": "2024-11-13T08:48:59Z",
+        "collected_timestamp": "2024-11-13T08:49:48Z",
+        "finished_timestamp": "2024-11-13T08:49:48Z",
+        "status": 1,
+        "platform": "windows",
+        "executor": "cmd",
+        "pid": 8952,
+        "agent_metadata": {
+            "paw": "epaylk",
+            "group": "red",
+            "architecture": "amd64",
+            "username": "SOMEDOMAIN\\Administrator",
+            "location": "C:\\Users\\Public\\caldera-red-team-agent.exe",
+            "pid": 7660,
+            "ppid": 2724,
+            "privilege": "Elevated",
+            "host": "windows-server",
+            "contact": "HTTP",
+            "created": "2024-11-13T08:30:24Z"
+        },
+        "ability_metadata": {
+            "ability_id": "6a7b4ba0-a9bb-451d-ba9f-d3a2e8a82ffe",
+            "ability_name": "OilRig \"SQL Admins\" Group Discovery",
+            "ability_description": "The net utility is executed via cmd to enumerate the \"SQL Admins\" group"
+        },
+        "operation_metadata": {
+            "operation_name": "Test-ability-operation (2024-11-13T08:46:40.562Z)",
+            "operation_start": "2024-11-13T08:46:39Z",
+            "operation_adversary": "Ability Tester"
+        },
+        "attack_metadata": {
+            "tactic": "discovery",
+            "technique_name": "Permission Groups Discovery: Domain Groups",
+            "technique_id": "T1069.002"
+        },
+        "output": {
+            "stdout": "",
+            "stderr": "The group name could not be found.More help is available by typing NET HELPMSG 2220.",
+            "exit_code": "2"
+        },
+        "agent_reported_time": "2024-11-13T08:49:49Z"
+    }
+]
