@@ -24,3 +24,6 @@ package-lock.json
 # Misc
 _sass/dist
 assets/js/dist
+
+# posts
+_posts/2024-11-14-research-d40.md
